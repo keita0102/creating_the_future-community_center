@@ -1,5 +1,62 @@
 // Google Apps Scriptの公開URL
-const SHEET_URL = 'https://script.google.com/macros/s/AKfycbzHAp5bqDfFkQ9nxGuVii34StLURq2xgiHSXMwFn59upLQtBzaSuVXwxn3bndZ6AnSY6g/exec';
+const SHEET_URL = 'https://script.google.com/macros/s/AKfycby8EDY1zKgWtfOMiT0XZugGZRzxyTct4VOJ9p5HMJIMWXCiSza5tVjIzdOQP54Q7vuiJw/exec';
+
+class Item {
+    constructor(title, studentNumber, name, description, imageUrl, linkUrl) {
+        this.title = title;
+        this.studentNumber = studentNumber;
+        this.name = name;
+        this.description = description;
+        this.imageUrl = imageUrl;
+        this.linkUrl = linkUrl;
+    }
+
+    createElement() {
+        const anchor = document.createElement('a');
+        anchor.href = this.linkUrl;
+        anchor.style.textDecoration = 'none';
+
+        const container = document.createElement('div');
+        container.className = 'item image-container';
+
+        const img = document.createElement('img');
+        img.src = this.imageUrl;
+        img.alt = '画像が読み込めません。学校のアカウントでログインしてください。';
+
+        const altText = document.createElement('div');
+        altText.className = 'alt-text';
+        altText.innerHTML = '画像が読み込めません。<br>学校のアカウントで<br>ログインしてください。';
+
+        const textDiv = document.createElement('div');
+        textDiv.className = 'text';
+
+        const titleElement = document.createElement('h1');
+        titleElement.textContent = this.title;
+
+        const h2 = document.createElement('h2');
+        const spanStudentNumber = document.createElement('span');
+        spanStudentNumber.textContent = this.studentNumber;
+        const spanName = document.createElement('span');
+        spanName.textContent = this.name;
+
+        h2.appendChild(spanStudentNumber);
+        h2.appendChild(spanName);
+
+        const descriptionElement = document.createElement('span');
+        descriptionElement.textContent = this.description;
+
+        textDiv.appendChild(titleElement);
+        textDiv.appendChild(h2);
+        textDiv.appendChild(descriptionElement);
+
+        container.appendChild(img);
+        container.appendChild(altText);
+        container.appendChild(textDiv);
+        anchor.appendChild(container);
+
+        return anchor;
+    }
+}
 
 fetch(SHEET_URL)
     .then(response => {
@@ -9,32 +66,27 @@ fetch(SHEET_URL)
         return response.json();
     })
     .then(data => {
-        const tableHead = document.querySelector('#sheetData thead tr');
-        const tableBody = document.querySelector('#sheetData tbody');
+        const container = document.getElementById('container');
 
-        // ヘッダー行を作成
+        container.innerHTML = ''; // 以前の内容をクリア
+
         if (data.length > 0) {
-            // ヘッダーを初期化
-            tableHead.innerHTML = ''; // 以前の内容をクリア
-            Object.keys(data[0]).forEach(header => {
-                const th = document.createElement('th');
-                th.textContent = header;
-                tableHead.appendChild(th);
-            });
-
-            // データ行を作成
-            tableBody.innerHTML = ''; // 以前の内容をクリア
             data.forEach(row => {
-                const tr = document.createElement('tr');
-                Object.values(row).forEach(cell => {
-                    const td = document.createElement('td');
-                    td.textContent = cell;
-                    tr.appendChild(td);
-                });
-                tableBody.appendChild(tr);
+                const item = new Item(
+                    row['タイトル'],
+                    row['生徒番号'],
+                    row['氏名'],
+                    row['説明'],
+                    row['サムネイル画像のアップロード'],
+                    row['新聞のアップロード']
+                );
+
+                const itemElement = item.createElement();
+                container.appendChild(itemElement);
             });
         } else {
             console.warn('No data found.');
+            container.innerHTML = '<p>データがありません。</p>';
         }
     })
     .catch(error => console.error('Error fetching data:', error));
