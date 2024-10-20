@@ -144,6 +144,11 @@ section h1 {
 div img {
   width: 200px;
   height: 150px;
+  object-fit: cover;
+}
+
+.nodata {
+  display: none;
 }
 
 .body_div {

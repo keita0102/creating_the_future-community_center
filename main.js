@@ -9,6 +9,15 @@ document.addEventListener('DOMContentLoaded', function () {
     fetch(SHEET_URL)
       .then(response => response.json())
       .then(data => {
+        // データが空の場合の処理
+        if (data.length === 0) {
+          document.querySelector('.loading_div').style.display = 'none';
+          const noDataMessage = document.querySelector('.nodata');
+          noDataMessage.style.display = 'flex'; // ここで表示する
+          document.querySelector('.body_div').style.display = 'flex';
+          return; // ここで処理を終了
+        }
+
         data.forEach(row => {
           let sectionId;
           // 公民館名に応じたセクションIDを設定
@@ -36,7 +45,7 @@ document.addEventListener('DOMContentLoaded', function () {
             const item = document.createElement('div');
             item.classList.add('item');
             item.innerHTML = `
-              <a href="${row['新聞のアップロード']}" style="text-decoration:none;">
+              <a href="${row['新聞のアップロード（形式：PDF）']}" style="text-decoration:none;">
                 <div class="item image-container">
                   <img src="${row['サムネイル画像のアップロード']}" alt="エラー：画像の読み込みに失敗しました">
                   <div class="text">
