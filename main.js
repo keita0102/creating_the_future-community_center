@@ -53,7 +53,7 @@ document.addEventListener('DOMContentLoaded', function () {
               <img src="${row['サムネイル画像のアップロード']}" alt="エラー：画像の読み込みに失敗しました">
               <div class="text">
                 <h1>${row['タイトル']}</h1>
-                <h2><span>${row['生徒番号']}</span><span>${row['氏名']}</span></h2>
+                <h2><span class="num">${row['生徒番号']}</span><span>${row['氏名']}</span></h2>
                 <span>${row['説明（150文字以内）']}</span>
               </div>
             </div>

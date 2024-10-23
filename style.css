@@ -106,6 +106,10 @@ section h1 {
   margin-bottom: 10px;
 }
 
+.num {
+  margin-right: 10px;
+}
+
 .item {
   display: flex;
   justify-content: flex-start;
