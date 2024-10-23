@@ -91,13 +91,31 @@ section h1 {
   padding-top: 40px;
 }
 
+.outside-item {
+  display: flex;
+  justify-content: flex-start;
+  color: black;
+  margin-right: 20px;
+  width: auto;
+  align-items: center;
+  border: solid 1px gray;
+  border-radius: 10px;
+  padding: 10px;
+  height: 180px;
+}
+
 .item {
   display: flex;
   justify-content: flex-start;
   color: black;
   margin-right: 20px;
-  width: 750px;
+  width: auto;
   align-items: center;
+}
+
+.outside-item:hover {
+  background-color: rgb(244, 244, 244);
+  cursor: pointer;
 }
 
 .text {
@@ -154,6 +172,7 @@ div img {
 .body_div {
   padding: 100px;
   padding-top: 0px;
+  padding-right: 0px;
 }
 .loading_div {
   display: flex;
