@@ -45,6 +45,7 @@ document.addEventListener('DOMContentLoaded', function () {
           const item = document.createElement('a');
           item.classList.add('outside-item');
           item.href = row['新聞のアップロード（形式：PDF）'];
+          item.title = "新聞記事に移動"
           item.style.textDecoration = 'none'; // テキストデコレーションを削除
 
           item.innerHTML = `
