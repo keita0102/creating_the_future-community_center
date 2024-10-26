@@ -6,6 +6,7 @@
   <link rel="stylesheet" href="style.css">
   <script src="main.js"></script>
   <title>7年 公民館</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=keyboard_arrow_down" />
 </head>
 
 <body>
@@ -68,35 +69,70 @@
 
   <div class="body_div" style="display: none; flex-direction: column;">
     <div id="kawatsu" class="community-section">
-      <h1 class="community_center">川津公民館</h1>
-      <div class="items"></div>
+      <input id="block-01" type="checkbox" class="toggle">
+      <label class="community_center" for="block-01">
+        <span>川津公民館</span>
+        <span class="material-symbols-outlined down" style="font-size: 50px;">keyboard_arrow_down</span>
+      </label>
+      <div class="items">
+        <span class="no-data">投稿がありません</span>
+      </div>
     </div>
 
     <div id="mochida" class="community-section">
-      <h1 class="community_center">持田公民館</h1>
-      <div class="items"></div>
+      <input id="block-02" type="checkbox" class="toggle">
+      <label class="community_center" for="block-02">
+        持田公民館
+        <span class="material-symbols-outlined down" style="font-size: 50px;">keyboard_arrow_down</span>
+      </label>
+      <div class="items">
+        <span class="no-data">投稿がありません</span>
+      </div>
     </div>
 
     <div id="saika" class="community-section">
-      <h1 class="community_center">雑賀公民館</h1>
-      <div class="items"></div>
+      <input id="block-03" type="checkbox" class="toggle">
+      <label class="community_center" for="block-03">
+        雑賀公民館
+        <span class="material-symbols-outlined down" style="font-size: 50px;">keyboard_arrow_down</span>
+      </label>
+      <div class="items">
+        <span class="no-data">投稿がありません</span>
+      </div>
     </div>
 
-    <div id="johoku" class="community-section">
-      <h1 class="community_center">城北公民館</h1>
-      <div class="items"></div>
+    <div id="jyohoku" class="community-section">
+      <input id="block-04" type="checkbox" class="toggle">
+      <label class="community_center" for="block-04">
+        城北公民館
+        <span class="material-symbols-outlined down" style="font-size: 50px;">keyboard_arrow_down</span>
+      </label>
+      <div class="items">
+        <span class="no-data">投稿がありません</span>
+      </div>
     </div>
 
-    <div id="josei" class="community-section">
-      <h1 class="community_center">城西公民館</h1>
-      <div class="items"></div>
+    <div id="jyosei" class="community-section">
+      <input id="block-05" type="checkbox" class="toggle">
+      <label class="community_center" for="block-05">
+        城西公民館
+        <span class="material-symbols-outlined down" style="font-size: 50px;">keyboard_arrow_down</span>
+      </label>
+      <div class="items">
+        <span class="no-data">投稿がありません</span>
+      </div>
     </div>
 
     <div id="asahi" class="community-section">
-      <h1 class="community_center">朝日公民館</h1>
-      <div class="items"></div>
+      <input id="block-06" type="checkbox" class="toggle">
+      <label class="community_center" for="block-06">
+        朝日公民館
+        <span class="material-symbols-outlined down" style="font-size: 50px;">keyboard_arrow_down</span>
+      </label>
+      <div class="items">
+        <span class="no-data">投稿がありません</span>
+      </div>
     </div>
-    <div class="nodata">データがありません</div>
   </div>
   <div class="loading_div" style="display: flex;">
     <h1>読み込み中・・・</h1>
@@ -109,6 +145,18 @@
     </button>
   </a>
 
+		<input id="block-01" type="checkbox" class="toggle">
+
+		<input id="block-02" type="checkbox" class="toggle">
+
+		<input id="block-03" type="checkbox" class="toggle">
+
+    <input id="block-04" type="checkbox" class="toggle">
+
+    <input id="block-05" type="checkbox" class="toggle">
+
+    <input id="block-06" type="checkbox" class="toggle">
+
   <script>
     document.addEventListener("DOMContentLoaded", function() {
         var img = document.querySelector(".image-container img");
@@ -119,6 +167,6 @@
             img.nextElementSibling.style.display = 'flex';
         });
     });
-</script>
+  </script>
 </body>
 </html>
