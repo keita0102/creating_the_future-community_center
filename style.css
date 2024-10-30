@@ -127,7 +127,6 @@ section h1 {
   display: flex;
   justify-content: flex-start;
   color: black;
-  margin-right: 20px;
   width: auto;
   align-items: center;
 }
@@ -308,6 +307,34 @@ div img {
   section {
     height: auto;
     padding-left: 0;
+  }
+  .outside-item {
+    padding: 4px;
+  height: 110px;
+  }
+  .item {
+    align-items: flex-start;
+  }
+  .item img {
+    width: 115px;
+    height: 100px;
+  }
+  .item .text {
+    margin-left: 10px;
+    padding-right: 0px;
+    height: 105px;
+  }
+  .item .text h1 {
+    font-size: 24px;
+    margin-bottom: 5px;
+  }
+  .item .text h2 {
+    margin-top: 0;
+    margin-bottom: 8px;
+    font-size: 20px;
+  }
+  .description {
+    font-size: 14px;
   }
 }
 @media screen and (max-width: 1040px) {

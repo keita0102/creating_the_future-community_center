@@ -54,7 +54,7 @@ document.addEventListener('DOMContentLoaded', function () {
               <div class="text">
                 <h1>${row['タイトル']}</h1>
                 <h2><span class="num">${row['生徒番号']}</span><span>${row['氏名']}</span></h2>
-                <span>${row['説明（150文字以内）']}</span>
+                <span class="description">${row['説明（150文字以内）']}</span>
               </div>
             </div>
           `;
