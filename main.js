@@ -9,44 +9,35 @@ document.addEventListener('DOMContentLoaded', function () {
   fetch(SHEET_URL)
     .then(response => response.json())
     .then(data => {
-      // データが空の場合の処理
       if (data.length === 0) {
         document.querySelector('.loading_div').style.display = 'none';
         const noDataMessage = document.querySelector('.nodata');
-        noDataMessage.style.display = 'flex'; // ここで表示する
+        noDataMessage.style.display = 'flex';
         document.querySelector('.body_div').style.display = 'flex';
-        return; // ここで処理を終了
+        return;
       }
 
       data.forEach(row => {
-        let sectionId;
-        // 公民館名に応じたセクションIDを設定
-        if (row['所属公民館'] === '川津公民館') {
-          sectionId = 'kawatsu';
-        } else if (row['所属公民館'] === '持田公民館') {
-          sectionId = 'mochida';
-        } else if (row['所属公民館'] === '雑賀公民館') {
-          sectionId = 'saika';
-        } else if (row['所属公民館'] === '城北公民館') {
-          sectionId = 'johoku';
-        } else if (row['所属公民館'] === '城西公民館') {
-          sectionId = 'josei';
-        } else if (row['所属公民館'] === '朝日公民館') {
-          sectionId = 'asahi';
-        } else {
-          sectionId = 'otherCommunityCenter';
-        }
+        const communityCenterMap = {
+          '川津公民館': 'kawatsu',
+          '持田公民館': 'mochida',
+          '雑賀公民館': 'saika',
+          '城北公民館': 'johoku',
+          '城西公民館': 'josei',
+          '朝日公民館': 'asahi',
+        };
 
+        const sectionId = communityCenterMap[row['所属公民館']] || 'otherCommunityCenter';
         const section = document.getElementById(sectionId);
+
         if (section) {
           const itemsContainer = section.querySelector('.items');
 
-          // 各アイテムを生成してセクションに追加
           const item = document.createElement('a');
           item.classList.add('outside-item');
-          item.href = row['新聞のアップロード（形式：PDF）'];
-          item.title = "新聞記事に移動"
-          item.style.textDecoration = 'none'; // テキストデコレーションを削除
+          item.href = `news.html?num=${row['生徒番号']}`;
+          item.title = "新聞記事に移動";
+          item.style.textDecoration = 'none';
 
           item.innerHTML = `
             <div class="item image-container">
@@ -63,14 +54,11 @@ document.addEventListener('DOMContentLoaded', function () {
         }
       });
 
-      // データの読み込みが完了したら、loading_divを非表示にしてbody_divを表示
       document.querySelector('.loading_div').style.display = 'none';
       document.querySelector('.body_div').style.display = 'flex';
     })
     .catch(error => {
       console.error('Error fetching data:', error);
-
-      // エラー発生時にも読み込み表示を終了する
       document.querySelector('.loading_div').style.display = 'none';
     });
 });
