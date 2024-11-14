@@ -20,11 +20,11 @@ document.addEventListener('DOMContentLoaded', function () {
       const record = data.find(row => row['生徒番号'] == studentNumber);
 
       if (record && record['新聞のアップロード（形式：PDF）']) {
-        // Google DriveのURLをimgに設定
-        const pdfUrl = record['新聞のアップロード（形式：PDF）'].replace('/open?', '/file/d/').replace('id=', '') + '/preview';
+        // Google DriveのURLをiframeに設定
+        const pdfUrl = record['新聞のアップロード（形式：PDF）'].replace('/open?', '/file/d/').replace('id=', '');
 
-        const img = document.querySelector('img');
-        img.src = pdfUrl;
+        const iframe = document.querySelector('iframe');
+        iframe.src = pdfUrl;
       } else {
         console.error('該当するデータが見つかりませんでした。');
         document.body.innerHTML = '<p>該当するデータがありません。</p>';

@@ -383,3 +383,32 @@ div img {
 .no-data:has(+ .outside-item) {
   display: none;
 }
+
+.news_body {
+  display: flex;
+  justify-content: center;
+}
+
+iframe {
+  width: 80%;
+  height: 95vh;
+  margin-top: 2.5vh;
+  margin-bottom: 2.5vh;
+}
+
+.back {
+  width: 70px;
+  height: 70px;
+  margin-right: 20px;
+  background-color: cornflowerblue;
+  opacity: 0.8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  margin-top: 20px;
+  text-decoration: none;
+  color: white;
+  flex-direction: column;
+  padding: 10px;
+}
