@@ -3,6 +3,9 @@ document.addEventListener('DOMContentLoaded', function () {
   const params = new URLSearchParams(window.location.search);
   const studentNumber = params.get('num'); // 例: ?num=7001
 
+  document.querySelector('.loading_div').style.display = 'flex';
+  document.querySelector('.body_div').style.display = 'none';
+
   if (!studentNumber) {
     console.error('生徒番号が指定されていません。');
     document.body.innerHTML = '<p>生徒番号が指定されていません。</p>';
@@ -16,6 +19,13 @@ document.addEventListener('DOMContentLoaded', function () {
   fetch(SHEET_URL)
     .then(response => response.json())
     .then(data => {
+      if (data.length === 0) {
+        document.querySelector('.loading_div').style.display = 'none';
+        const noDataMessage = document.querySelector('.nodata');
+        noDataMessage.style.display = 'flex';
+        document.querySelector('.body_div').style.display = 'flex';
+        return;
+      }
       // 生徒番号に一致するレコードを検索
       const record = data.find(row => row['生徒番号'] == studentNumber);
 
@@ -29,6 +39,9 @@ document.addEventListener('DOMContentLoaded', function () {
         console.error('該当するデータが見つかりませんでした。');
         document.body.innerHTML = '<p>該当するデータがありません。</p>';
       }
+
+      document.querySelector('.loading_div').style.display = 'none';
+      document.querySelector('.body_div').style.display = 'flex';
     })
     .catch(error => {
       console.error('データの取得中にエラーが発生しました:', error);

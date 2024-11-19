@@ -393,7 +393,6 @@ iframe {
   width: 80%;
   height: 95vh;
   margin-top: 2.5vh;
-  margin-bottom: 2.5vh;
 }
 
 .back {
@@ -411,4 +410,6 @@ iframe {
   color: white;
   flex-direction: column;
   padding: 10px;
+  position: absolute;
+  left: 10px;
 }

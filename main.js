@@ -4,6 +4,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
   // ページが読み込まれたらloading_divを表示
   document.querySelector('.loading_div').style.display = 'flex';
+  document.querySelector('.body_div').style.display = 'none';
 
   // データを取得して各公民館に表示
   fetch(SHEET_URL)
