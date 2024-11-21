@@ -13,32 +13,32 @@
   <section id="page-top">
     <h1>未来創造科 7年 公民館</h1>
     <div class="dt-menu">
-      <a href="#kawatsu" style="text-decoration:none;">
+      <a href="#kawatsu" style="text-decoration:none;" onclick="document.getElementById('block-01').checked = true;">
         <button class="button">
           川津公民館
         </button>
       </a>
-      <a href="#mochida" style="text-decoration:none;">
+      <a href="#mochida" style="text-decoration:none;" onclick="document.getElementById('block-02').checked = true;">
         <button class="button">
           持田公民館
         </button>
       </a>
-      <a href="#saika" style="text-decoration:none;">
+      <a href="#saika" style="text-decoration:none;" onclick="document.getElementById('block-03').checked = true;">
         <button class="button">
           雑賀公民館
         </button>
       </a>
-      <a href="#jyohoku" style="text-decoration:none;">
+      <a href="#jyohoku" style="text-decoration:none;" onclick="document.getElementById('block-04').checked = true;">
         <button class="button">
           城北公民館
         </button>
       </a>
-      <a href="#jyosai" style="text-decoration:none;">
+      <a href="#jyosai" style="text-decoration:none;" onclick="document.getElementById('block-05').checked = true;">
         <button class="button">
           城西公民館
         </button>
       </a>
-      <a href="#asahi" style="text-decoration:none;">
+      <a href="#asahi" style="text-decoration:none;" onclick="document.getElementById('block-06').checked = true;">
         <button class="button">
           朝日公民館
         </button>
@@ -47,22 +47,22 @@
 
     <ul class="sp_menu">
         <li class="kawatsu">
-          <a href="#kawatsu" style="text-decoration:none;">川津公民館</a>
+          <a href="#kawatsu" style="text-decoration:none;" onclick="document.getElementById('block-01').checked = true;">川津公民館</a>
         </li>
         <li class="mochida">
-          <a href="#mochida" style="text-decoration:none;">持田公民館</a>
+          <a href="#mochida" style="text-decoration:none;" onclick="document.getElementById('block-02').checked = true;">持田公民館</a>
         </li>
         <li class="saika">
-          <a href="#saika" style="text-decoration:none;">雑賀公民館</a>
+          <a href="#saika" style="text-decoration:none;" onclick="document.getElementById('block-03').checked = true;">雑賀公民館</a>
         </li>
         <li class="jyohoku">
-          <a href="#jyohoku" style="text-decoration:none;">城北公民館</a>
+          <a href="#jyohoku" style="text-decoration:none;" onclick="document.getElementById('block-04').checked = true;">城北公民館</a>
         </li>
         <li class="jyosai">
-          <a href="#jyosai" style="text-decoration:none;">城西公民館</a>
+          <a href="#jyosai" style="text-decoration:none;" onclick="document.getElementById('block-05').checked = true;">城西公民館</a>
         </li>
         <li class="asahi">
-          <a href="#asahi" style="text-decoration:none;">朝日公民館</a>
+          <a href="#asahi" style="text-decoration:none;" onclick="document.getElementById('block-06').checked = true;">朝日公民館</a>
         </li>
     </ul>
   </section>
@@ -158,6 +158,11 @@
     <input id="block-06" type="checkbox" class="toggle">
 
   <script>
+    function kawatsuClick() {
+      const kawatsu = document.getElementById("block-01");
+      kawatsu.checked = true;
+    }
+
     document.addEventListener("DOMContentLoaded", function() {
         var img = document.querySelector(".image-container img");
         img.addEventListener("error", function() {

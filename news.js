@@ -3,6 +3,7 @@ document.addEventListener('DOMContentLoaded', function () {
   const params = new URLSearchParams(window.location.search);
   const studentNumber = params.get('num'); // 例: ?num=7001
 
+  // ローディング状態を表示
   document.querySelector('.loading_div').style.display = 'flex';
   document.querySelector('.body_div').style.display = 'none';
 
@@ -26,15 +27,21 @@ document.addEventListener('DOMContentLoaded', function () {
         document.querySelector('.body_div').style.display = 'flex';
         return;
       }
+
       // 生徒番号に一致するレコードを検索
       const record = data.find(row => row['生徒番号'] == studentNumber);
 
       if (record && record['新聞のアップロード（形式：PDF）']) {
         // Google DriveのURLをiframeに設定
-        const pdfUrl = record['新聞のアップロード（形式：PDF）'].replace('/open?', '/file/d/').replace('id=', '');
+        const pdfUrl = record['新聞のアップロード（形式：PDF）']
+          .replace('/open?', '/file/d/')
+          .replace('id=', '');
 
         const iframe = document.querySelector('iframe');
         iframe.src = pdfUrl;
+
+        // ページタイトルを設定
+        document.title = `${record['氏名']}さんの新聞`;
       } else {
         console.error('該当するデータが見つかりませんでした。');
         document.body.innerHTML = '<p>該当するデータがありません。</p>';
