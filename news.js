@@ -46,7 +46,6 @@ document.addEventListener('DOMContentLoaded', function () {
         console.error('該当するデータが見つかりませんでした。');
         document.body.innerHTML = '<p>該当するデータがありません。</p>';
       }
-
       document.querySelector('.loading_div').style.display = 'none';
       document.querySelector('.body_div').style.display = 'flex';
     })
