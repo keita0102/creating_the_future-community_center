@@ -23,8 +23,8 @@ document.addEventListener('DOMContentLoaded', function () {
           '川津公民館': 'kawatsu',
           '持田公民館': 'mochida',
           '雑賀公民館': 'saika',
-          '城北公民館': 'johoku',
-          '城西公民館': 'josei',
+          '城北公民館': 'jyohoku',
+          '城西公民館': 'josai',
           '朝日公民館': 'asahi',
         };
 
