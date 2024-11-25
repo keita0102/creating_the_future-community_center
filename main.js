@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', function () {
           '持田公民館': 'mochida',
           '雑賀公民館': 'saika',
           '城北公民館': 'jyohoku',
-          '城西公民館': 'josai',
+          '城西公民館': 'jyosai',
           '朝日公民館': 'asahi',
         };
 
