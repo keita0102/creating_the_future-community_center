@@ -36,7 +36,12 @@ document.addEventListener('DOMContentLoaded', function () {
 
           const item = document.createElement('a');
           item.classList.add('outside-item');
-          item.href = `news.html?num=${row['生徒番号（半角英数字で入力お願いします ７４１５ ✕    7415  ◯）']}`;
+          var ua = navigator.userAgent;
+          if (ua.includes("iPhone") || (ua.includes("Android") && ua.includes("Mobile"))) {
+            item.href = `${row['新聞のアップロード（形式：PDF）']}`;
+          } else {
+            item.href = `news.html?num=${row['生徒番号（半角英数字で入力お願いします ７４１５ ✕    7415  ◯）']}`;
+          }
           item.title = "新聞記事に移動";
           item.style.textDecoration = 'none';
 
