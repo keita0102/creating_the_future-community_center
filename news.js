@@ -29,7 +29,7 @@ document.addEventListener('DOMContentLoaded', function () {
       }
 
       // 生徒番号に一致するレコードを検索
-      const record = data.find(row => row['生徒番号'] == studentNumber);
+      const record = data.find(row => row['生徒番号（半角英数字で入力お願いします ７４１５ ✕    7415  ◯）'] == studentNumber);
 
       if (record && record['新聞のアップロード（形式：PDF）']) {
         // Google DriveのURLをiframeに設定
