@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <script src="search.js"></script>
+  <title>Document</title>
+</head>
+<body>
+  <section id="page-top">
+    <h1>未来創造科 7年 公民館</h1>
+      <ul class="sp_menu" style="margin-bottom: 20px;">
+        <li class="kawatsu" style="border-radius: 5px; margin: 0 10px 0 10px;">
+          <a href="index.html" style="text-decoration:none;">新聞一覧に戻る</a>
+        </li>
+        <li class="search" style="padding: 0; display: flex; border-radius: 5px;">
+          <input class="search-input" type="text" style="border: none;" placeholder="制作者名で検索">
+          <button class="search-btn" style="border: none; border-radius: 5px;" onclick="var query = Array.from(document.body.querySelectorAll('input[class=search-input]')).map((x) => `${x.value}`).join(' '); window.location = `/search.html?serch=${query}`">検索</button>
+        </li>
+      </ul>
+    <div class="dt-menu" style="display: flex; align-items: center;">
+      <a href="index.html" style="text-decoration:none;" onclick="document.getElementById('block-05').checked = true;">
+        <button class="button" style="width: 230px;">
+          全ての新聞一覧に戻る
+        </button>
+      </a>
+      <input placeholder="制作者名で検索" class="dt-search" style="padding: 5px;" type="text">
+      <button class="dt-search_btn" onclick="var query = Array.from(document.body.querySelectorAll('input[class=dt-search]')).map((x) => `${x.value}`).join(' '); window.location.href = `/search.html?serch=${query}`">検索</button>
+    </div>
+  </section>
+  <h1 class="search_title">検索結果</h1>
+  <p class="search_value"></p>
+  <div>
+    <div class="search_items body_div" style="flex-direction: column;"></div>
+    <div class="loading_div" style="display: flex;">
+      <h1>Now Loading...</h1>
+      <div class="circle-spin-2" style="width: 70px; height: 70px; margin-top: 20px;"></div>
+    </div>
+  </div>
+</body>
+</html>

@@ -11,6 +11,10 @@
 
 <body>
   <section id="page-top">
+    <div style="position: absolute; top: 20px; right: 20px;">
+      <input placeholder="制作者名で検索" class="dt-search" style="padding: 5px;" type="text">
+      <button class="dt-search_btn" style="margin-top: 0px; margin-bottom: 0px; height: 50px;" onclick="var query = Array.from(document.body.querySelectorAll('input[class=dt-search]')).map((x) => `${x.value}`).join(' '); window.location.href = `/search.html?serch=${query}`">検索</button>
+    </div>
     <h1>未来創造科 7年 公民館</h1>
     <div class="dt-menu">
       <a href="#kawatsu" style="text-decoration:none;" onclick="document.getElementById('block-01').checked = true;">
@@ -63,6 +67,10 @@
         </li>
         <li class="asahi">
           <a href="#asahi" style="text-decoration:none;" onclick="document.getElementById('block-06').checked = true;">朝日公民館</a>
+        </li>
+        <li class="search" style="padding: 0; display: flex; border: none;">
+          <input class="search-input" type="text" placeholder="制作者名で検索">
+          <button class="search-btn" onclick="var query = Array.from(document.body.querySelectorAll('input[class=search-input]')).map((x) => `${x.value}`).join(' '); window.location = `/search.html?serch=${query}`">検索</button>
         </li>
     </ul>
   </section>
