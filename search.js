@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', function () {
   // URLパラメータから制作者名を取得
   const params = new URLSearchParams(window.location.search);
-  const searchText = params.get('serch'); // 例: ?serch=田中
+  const searchText = params.get('search'); // 例: ?serch=田中
 
   // ローディング状態を表示
   document.querySelector('.loading_div').style.display = 'flex';
