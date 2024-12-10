@@ -165,21 +165,14 @@
 
     <input id="block-06" type="checkbox" class="toggle">
 
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=[自分のID]"></script>
   <script>
-    function kawatsuClick() {
-      const kawatsu = document.getElementById("block-01");
-      kawatsu.checked = true;
-    }
-
-    document.addEventListener("DOMContentLoaded", function() {
-        var img = document.querySelector(".image-container img");
-        img.addEventListener("error", function() {
-            // 画像を非表示にする
-            img.style.display = 'none';
-            // 代替テキストを表示する
-            img.nextElementSibling.style.display = 'flex';
-        });
-    });
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+  
+    gtag('config', '[自分のID]');
   </script>
 </body>
 </html>
